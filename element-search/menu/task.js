@@ -12,8 +12,10 @@ menuLink.forEach((menuLink) => {
     const menuItem = menuLink.closest('.menu__item');
     const menuSub = menuItem.querySelector('.menu__item ul');
     menuLink.onclick = () => {
-        menuSub.classList.contains('menu_active') ? menuSub.classList.remove('menu_active') : menuSub.classList.add('menu_active');
-        closeOtherSubMenu(menuSub);
-        return false;
+        if (menuSub !== null) {
+            (menuSub.classList.contains('menu_active')) ? menuSub.classList.remove('menu_active') : menuSub.classList.add('menu_active');
+            closeOtherSubMenu(menuSub);
+            return false;
+        }
     }
 });
